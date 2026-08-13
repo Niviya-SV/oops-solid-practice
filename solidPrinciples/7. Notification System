@@ -1,0 +1,51 @@
+interface Notification {
+    void send(String message);
+}
+
+class EmailNotification implements Notification {
+
+    @Override
+    public void send(String message) {
+        System.out.println("Email: " + message);
+    }
+}
+
+class SMSNotification implements Notification {
+
+    @Override
+    public void send(String message) {
+        System.out.println("SMS: " + message);
+    }
+}
+
+class WhatsAppNotification implements Notification {
+
+    @Override
+    public void send(String message) {
+        System.out.println("WhatsApp: " + message);
+    }
+}
+
+class PushNotification implements Notification {
+
+    @Override
+    public void send(String message) {
+        System.out.println("Push: " + message);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Notification[] notifications = {
+            new EmailNotification(),
+            new SMSNotification(),
+            new WhatsAppNotification(),
+            new PushNotification()
+        };
+
+        for (Notification n : notifications) {
+            n.send("Your order has been shipped.");
+        }
+    }
+}

@@ -1,0 +1,72 @@
+class Employee {
+    protected String name;
+    protected double basicSalary;
+
+    Employee(String name, double basicSalary) {
+        this.name = name;
+        this.basicSalary = basicSalary;
+    }
+
+    public double calculateSalary() {
+        return basicSalary;
+    }
+}
+
+class Developer extends Employee {
+    private double codingBonus;
+
+    Developer(String name, double basicSalary, double codingBonus) {
+        super(name, basicSalary);
+        this.codingBonus = codingBonus;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return basicSalary + codingBonus;
+    }
+}
+
+class Designer extends Employee {
+    private double designBonus;
+
+    Designer(String name, double basicSalary, double designBonus) {
+        super(name, basicSalary);
+        this.designBonus = designBonus;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return basicSalary + designBonus;
+    }
+}
+
+class Manager extends Employee {
+    private double managementBonus;
+
+    Manager(String name, double basicSalary, double managementBonus) {
+        super(name, basicSalary);
+        this.managementBonus = managementBonus;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return basicSalary + managementBonus;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Employee[] employees = {
+            new Developer("Arun", 40000, 5000),
+            new Designer("Priya", 35000, 4000),
+            new Manager("Kumar", 50000, 10000)
+        };
+
+        for (Employee e : employees) {
+            System.out.println(
+                e.name + " Salary: " + e.calculateSalary()
+            );
+        }
+    }
+}
